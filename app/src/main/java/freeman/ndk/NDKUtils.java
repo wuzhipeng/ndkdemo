@@ -6,6 +6,8 @@ package freeman.ndk;
 public class NDKUtils {
     public native static String getCLanguageString();
 
+    public native int getCLanguageInt(int a);
+
     static {
         System.loadLibrary("NDKSO");
     }

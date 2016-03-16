@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         tv = (TextView) findViewById(R.id.text);
 
-        tv.setText(NDKUtils.getCLanguageString());
+        NDKUtils utils = new NDKUtils();
+        tv.setText(NDKUtils.getCLanguageString() + "\n" + utils.getCLanguageInt(5));
     }
 }

@@ -15,6 +15,14 @@ extern "C" {
 JNIEXPORT jstring JNICALL Java_freeman_ndk_NDKUtils_getCLanguageString
   (JNIEnv *, jclass);
 
+/*
+ * Class:     freeman_ndk_NDKUtils
+ * Method:    getCLanguageInt
+ * Signature: (I)I
+ */
+JNIEXPORT jint JNICALL Java_freeman_ndk_NDKUtils_getCLanguageInt
+  (JNIEnv *, jobject, jint);
+
 #ifdef __cplusplus
 }
 #endif
