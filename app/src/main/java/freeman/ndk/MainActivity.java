@@ -2,18 +2,37 @@ package freeman.ndk;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     TextView tv = null;
+    TextView tv1 = null;
+    Button btn = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         tv = (TextView) findViewById(R.id.text);
+        tv1 = (TextView) findViewById(R.id.text1);
+        btn = (Button) findViewById(R.id.btn);
 
-        NDKUtils utils = new NDKUtils();
+
+        final NDKUtils utils = new NDKUtils(tv1);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 调用C方法，让它回调Java方法
+                   utils.callCCode();
+            }
+        });
+
+
         tv.setText(NDKUtils.getCLanguageString() + "\n" + utils.getCLanguageInt(5));
+
     }
 }
