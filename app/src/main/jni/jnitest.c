@@ -12,8 +12,7 @@
  * Method:    getCLanguageString
  * Signature: ()Ljava/lang/String;
  */
-JNIEXPORT jstring JNICALL Java_freeman_ndk_NDKUtils_getCLanguageString
-        (JNIEnv *env, jclass jclass){
+jstring Java_freeman_ndk_NDKUtils_getCLanguageString(JNIEnv *env, jclass jclass){
     return (*env)->NewStringUTF(env, "NDK真特么蛋疼");
 }
 
@@ -22,14 +21,12 @@ JNIEXPORT jstring JNICALL Java_freeman_ndk_NDKUtils_getCLanguageString
  * Method:    getCLanguageInt
  * Signature: (I)I
  */
-JNIEXPORT jint JNICALL Java_freeman_ndk_NDKUtils_getCLanguageInt
-        (JNIEnv *env, jobject obj, jint i){
+jint Java_freeman_ndk_NDKUtils_getCLanguageInt(JNIEnv *env, jobject obj, jint i){
     return i * i;
 }
 
 
-void Java_freeman_ndk_NDKUtils_callCCode
-        (JNIEnv *env, jobject obj) {
+void Java_freeman_ndk_NDKUtils_callCCode(JNIEnv *env, jobject obj) {
 
     // 完整类名
     char* classname = "freeman/ndk/NDKUtils";
@@ -51,6 +48,5 @@ void Java_freeman_ndk_NDKUtils_callCCode
     jmethodID methodID1 = (*env)->GetMethodID(env, cls, "javaMethod", "()V");
 
     (*env)->CallVoidMethod(env, obj, methodID1);
-
 
 }
