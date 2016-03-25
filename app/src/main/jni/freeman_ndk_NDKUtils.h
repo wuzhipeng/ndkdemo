@@ -23,6 +23,14 @@ JNIEXPORT jstring JNICALL Java_freeman_ndk_NDKUtils_getCLanguageString
 JNIEXPORT jint JNICALL Java_freeman_ndk_NDKUtils_getCLanguageInt
   (JNIEnv *, jobject, jint);
 
+/*
+ * Class:     freeman_ndk_NDKUtils
+ * Method:    callCCode
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_freeman_ndk_NDKUtils_callCCode
+  (JNIEnv *, jobject);
+
 #ifdef __cplusplus
 }
 #endif
