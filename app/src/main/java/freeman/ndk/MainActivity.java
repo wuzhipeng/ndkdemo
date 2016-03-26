@@ -31,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        tv.setText(NDKUtils.getCLanguageString() + "\n" + utils.getCLanguageInt(5));
+        String content = NDKUtils.getCLanguageString() + "\n" + utils.getCLanguageInt(5);
+        tv.setText(content);
 
     }
 }
