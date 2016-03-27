@@ -18,6 +18,8 @@ public class NDKUtils {
 
     public native void callCCode();
 
+    public native void callCCodeString(String string);
+
     /**
      * 给C回调的方法，带参数String
      * @param string

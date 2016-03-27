@@ -3,8 +3,9 @@
 //
 
 #include <jni.h>
-/*#include <string.h>
-#include <android/log.h>
+#include <string.h>
+#include <stdlib.h>
+/*#include <android/log.h>
 #define LOG_TAG "System.out"
 #define LOGI(...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)*/
 /*
@@ -49,4 +50,33 @@ void Java_freeman_ndk_NDKUtils_callCCode(JNIEnv *env, jobject obj) {
 
     (*env)->CallVoidMethod(env, obj, methodID1);
 
+}
+
+void Java_freeman_ndk_NDKUtils_callCCodeString(JNIEnv *env, jobject obj, jstring str) {
+
+    char* className = "freeman/ndk/NDKUtils";
+
+    jclass cls = (*env)->FindClass(env, className);
+
+    jmethodID methodID = (*env)->GetMethodID(env, cls, "cLanguageCallBack", "(Ljava/lang/String;)V");
+
+    char* title = "输入：";
+
+    char* string = (*env)->GetStringUTFChars(env, str, 0);
+
+    // 计算字符串长度
+    int len = strlen(title) + strlen(string);
+
+    // 动态分配内存
+    char* content = (char*)malloc(len);
+
+    strcpy(content, title);
+    strcat(content, string);
+
+    (*env)->CallVoidMethod(env, obj, methodID, (*env)->NewStringUTF(env, content));
+
+    // 释放string对象占用的空间
+    (*env)->ReleaseStringUTFChars(env, str, string);
+
+    free(content);
 }

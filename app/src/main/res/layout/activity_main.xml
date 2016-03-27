@@ -10,11 +10,16 @@
     android:orientation="vertical"
     tools:context="freeman.ndk.MainActivity">
 
+    <EditText
+        android:id="@+id/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <Button
         android:id="@+id/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="C回调Java方法"/>
+        android:text="C回调Java"/>
 
     <TextView
         android:id="@+id/text1"
