@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
         btn = (Button) findViewById(R.id.btn);
         editText = (EditText) findViewById(R.id.edit_text);
 
-
         final NDKUtils utils = new NDKUtils(tv1);
 
         btn.setOnClickListener(new View.OnClickListener() {
