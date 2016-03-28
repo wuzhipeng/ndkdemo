@@ -5,6 +5,9 @@
 #include <jni.h>
 #include <string.h>
 #include <stdlib.h>
+#include "android_log_print.h"
+
+
 /*#include <android/log.h>
 #define LOG_TAG "System.out"
 #define LOGI(...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)*/
@@ -66,6 +69,8 @@ void Java_freeman_ndk_NDKUtils_callCCodeString(JNIEnv *env, jobject obj, jstring
 
     // 计算字符串长度
     int len = strlen(title) + strlen(string);
+
+    LOGD("数组长度：%d", len);
 
     // 动态分配内存
     char* content = (char*)malloc(len);
